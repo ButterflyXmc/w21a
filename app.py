@@ -19,7 +19,7 @@ def post_item():
     description = request.json.get('description')
     quantity = request.json.get('quantity')
     result = run_statement("CALL post_item(?,?,?)", [name, description, quantity])
-    if result[0][0] == 1:
+    if result == None:
         return "Item added successfully!"
     else:
         "Something went wrong"
@@ -29,7 +29,7 @@ def patch_item():
     quantity = request.json.get('quantity')
     id = request.json.get('itemId')
     result = run_statement("CALL patch_item(?,?)" [quantity, id])
-    if result [0][0] == 1:
+    if result == None:
         return "Item quantity updated successfully!"
     else:
         "Something went wrong"
@@ -67,8 +67,7 @@ def post_employee():
     name = request.json.get('name')
     hourly_wage = request.json.get('hourlyWage')
     result = run_statement("CALL post_employee(?,?)" [name, hourly_wage])
-    # first field of the first array
-    if result[0][0] == 1:
+    if result == None:
         return "New employee's name and hourly wage added successfully!"
     else:
         "Something went wrong"
@@ -79,7 +78,7 @@ def patch_employee():
     hourly_wage = request.json.get('hourlyWage')
     id = request.json.get('employeeId')
     result = run_statement("CALL patch_employee(?,?)" [hourly_wage, id])
-    if result[0][0] == 1:
+    if result == None:
         return "Employee's hourly wage updated successfully!"
     else:
         "Something went wrong"
