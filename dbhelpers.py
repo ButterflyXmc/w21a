@@ -27,7 +27,7 @@ def disconnect_db(cursor):
         print("OPERATIONAL ERROR : ", e)
     except mariadb.InternalError as e:
         print("INTERNAL ERROR : ", e)
-    # ^ These two errors will pop up if conncting to db is not successful
+    # ^ These two errors will pop up if connecting to db is not successful
     except Exception as e:
         print("UNEXPECTED ERROR : ", e)
     # ^ If aythingg else goes wrong
